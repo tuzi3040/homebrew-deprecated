@@ -9,11 +9,6 @@ class GooglerDeprecated < Formula
   revision 2
   head "https://github.com/jarun/googler.git", branch: "main"
 
-  bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "1d6c7d8176987bf3ca799f10d913e853441b28c5cb394c7a3cbe70c30b61432d"
-  end
-
   depends_on "python@3.11"
 
   # Upstream PROTOCOL_TLS patch, review for removal on next release (if any)
