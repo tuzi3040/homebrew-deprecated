@@ -1,12 +1,12 @@
-name: brew pr-pull
+name: brew bump-formula-pr
 on:
   pull_request_target:
     types:
       - labeled
 jobs:
-  pr-pull:
-    if: contains(github.event.pull_request.labels.*.name, 'pr-pull')
-    runs-on: ubuntu-22.04
+  bump-formula-pr:
+    if: contains(github.event.pull_request.labels.*.name, 'bump-formula-pr')
+    runs-on: ubuntu-latest
     permissions:
       contents: write
       packages: write
@@ -30,7 +30,7 @@ jobs:
         uses: Homebrew/actions/git-try-push@master
         with:
           token: ${{ github.token }}
-          branch: main
+          branch: master
 
       - name: Delete branch
         if: github.event.pull_request.head.repo.fork == false
